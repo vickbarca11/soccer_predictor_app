@@ -2,6 +2,25 @@
 # **CAPSTONE PROJECT** (Galvanize DDI Cohort 11) - _**Analyzing soccer goals and match outcomes**_ 
 _by Victor Chang_
 
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Research Question](#research-question)
+- [Description of Data](#description-of-data)
+  - [SportMonks](#sportmonks)
+  - [Statsbomb](#statsbomb)
+- [Cleaning and Transforming Data](#cleaning-and-transforming-data)
+  - [SportMonks](#sportmonks-1)
+  - [Statsbombpy](#statsbombpy)
+- [Training and Testing the Model](#training-and-testing-the-model)
+  - [SportMonks](#sportmonks-2)
+  - [Statsbombpy](#statsbombpy-1)
+- [Model Comparisons](#model-comparisons)
+  - [Home Team Winning Predictions](#english-premier-league-home-team-winning-predictions)
+  - [Goal Scoring Predictions](#english-premier-league-goal-scoring-predictions)
+- [Final Thoughts](#final-thoughts)
+- [Future Recommendations/Areas of Study](#future-recommendationareas-of-study)
+
 # **Project Overview**
 The goal of this project was to work with different soccer datasets and create predictive models that assimilate real life outcomes in soccer. The models are used to feed a streamlit app that allows users to control parameters that define the outcome probabilities. The app displays two different predictions: probability of the home team winning a certain match, and the probability of goal scoring at a certain time and position of the game. Both models are produced with data from the English Premier League, with a bonus goal's predictive model of Messi from his years at FC Barcelona. 
 
@@ -76,7 +95,7 @@ The dataset gathered had multiple lines of data, but the actual model was only f
 9. Match period and minute features were created to more accurately represent the time of the match.
 
 
-# **Training the Model**
+# **Training and Testing the Model**
 ## SportMonks
 ### English Premier League Match Outcome: 
 #### Dividing the dataset into X and y:
