@@ -19,7 +19,7 @@ def clean_categories(X):
 # Set up UI
 st.set_page_config(layout="centered", initial_sidebar_state='expanded')
 
-page = st_navbar(['Home', 'Prediction Tools', 'Project Information', 'About me'])
+page = st_navbar(['Home', 'Prediction Tools', 'References', 'About me'])
 
 if page == "Home":
     st.title("Introduction")
@@ -40,8 +40,8 @@ if page == "Home":
         image_newcast_crys = Image.open('../img/epl_match_table_top.png')
         st.image(image_newcast_crys)
 
-        st.write("The image below was captured at 1:30pm (EST) on April 16th, 1 hour before the start of the match. Google's probability outcome was " \
-        "in favor of Newcastle winning at 58%") 
+        st.write("_**The image below was captured at 1:30pm (EST) on April 16th, 1 hour before the start of the match. Google's probability outcome was " \
+        "in favor of Newcastle winning at 58%**_") 
         
     with col2:
         image_weather = Image.open('../img/epl_match_hum_press.png')
@@ -49,8 +49,8 @@ if page == "Home":
         image_table = Image.open('../img/epl_match_table_bottom.png')
         st.image(image_table)
 
-        st.write("The stadium is Newcastle's home stadium, St. James' Park in London. Newcastle United is ranked 4th in the table, " \
-        "while Crystal Palace is ranked 12th. Live weather data allows us to use these features for our model")
+        st.write("_**The stadium is Newcastle's home stadium, St. James' Park in London. Newcastle United is ranked 4th in the table, " \
+        "while Crystal Palace is ranked 12th. Live weather data allows us to use these features for our model**_")
     
     with col3:
         image_match_tool = Image.open('../img/epl_match_app_top.png')
@@ -58,7 +58,7 @@ if page == "Home":
         image_table = Image.open('../img/epl_match_app_bottom.png')
         st.image(image_table)
 
-        st.write("Inputting all the features from the match, our application favors Newcastle winning at 54.18%")
+        st.write("_**Inputting all the features from the match, our application favors Newcastle winning at 54.18%**_")
 
     st.markdown("#### _**What Shapes Goal Scoring Predictions?**_")
     st.write("Predicting whether a shot will result in a goal isn't just guesswork,it's the art of analyzing key in-game details. " \
@@ -71,9 +71,9 @@ if page == "Home":
     with col1:
         image_rice_goal = Image.open('../img/epl_match_ars_goal.png')
         st.image(image_rice_goal)
-        st.write("This goal was scored by Arsenal's Declan Rice on March 9th against Manchester United " \
+        st.write("_**This goal was scored by Arsenal's Declan Rice on March 9th against Manchester United " \
         "during a regular season match. The goal was scored between the 73rd and 74th minute during a regular play. " \
-        "Adjusting the on our application, we see that the probability of scoring was about 54.36%.")
+        "Adjusting the on our application, we see that the probability of scoring was about 54.36%.**_")
 
     with col2:
         image_app_top = Image.open('../img/epl_match_ars_goal_app_top.png')
@@ -616,15 +616,64 @@ if page == 'Prediction Tools':
                 st.error("Something went wrong")
                 st.write(response.status_code)
 
-if page == "Project Information":
-    doc_page = st.sidebar.radio("Go to", ["Documentation", "GitHub"])
-    if doc_page == "Documentation":
-        st.write("Victor Chang")
-    elif doc_page == "GitHub":
-        st.sidebar.link_button("🚀 GitHub Repository", url="https://github.com/vickbarca11/soccer_predictor_app", type="primary")
+if page == "References":
+    doc_page = st.sidebar.radio("**Go to**", ["GitHub", "SportMonks", "Statsbomb"])
+    if doc_page == "GitHub":
+        st.sidebar.link_button("🚀 GitHub Repo", url="https://github.com/vickbarca11/soccer_predictor_app", type="primary")
+    elif doc_page == "SportMonks":
+        st.sidebar.link_button("🚀 SportMonks", url="https://www.sportmonks.com/", type="primary")
+        st.markdown("A great beginner tutorial for using the SportMonks API with python:")
+        st.link_button("Beginner's Guide with Python:", url="https://www.sportmonks.com/blogs/a-developers-playbook-harnessing-the-power-of-sportmonks-football-api-with-python/", type="primary")
+        st.markdown("For SportMonks' Football API documentation, you can click on the link below:")
+        st.link_button("SportMonks Football API Documentation", url="https://docs.sportmonks.com/football", type="primary")
+    elif doc_page == "Statsbomb":
+        st.sidebar.link_button("🚀 Statsbomb", url="https://statsbomb.com/", type="primary")
+        st.markdown("For the documentation on the Statsbomb available open datasets, you can visit the link below." \
+        " This is the dataset utilized for this web application to create our goal scoring predictive models" \
+        " for the Premier League 2015/2016 season, as well as Messi's career at FC Barcelona:")
+        st.link_button("Statsbombpy Documentation", url="https://github.com/statsbomb/statsbombpy", type="primary")
 
 if page == "About me":
-    site_page = st.sidebar.radio("Go to", ["Bio", "LinkedIn"])
+    site_page = st.sidebar.radio("**Go to**", ["Bio", "LinkedIn"])
+    if site_page == "Bio":
+        st.write("Hi, I'm Victor Chang—a data analyst, lifelong soccer fan, and builder of tools that turn stats into strategy. " \
+        "With a background in mechanical engineering and a current role in the U.S. Army, I've honed a skill set grounded in " \
+        "precision, discipline, and data-driven problem-solving. From optimizing logistics for 200+ personnel to driving " \
+        "20% cost savings through smart analysis, I've consistently used data to deliver impact where it matters most. " \
+        "Now, as I pursue my MBA, I'm focused on blending business insights with technical expertise to create real-world solutions. " \
+        "This interactive soccer analytics web app was designed to uncover what drives goals and match outcomes in the Premier League. " \
+        "Using datasets from SportMonks and StatsBombPy, the app featured two predictive models that let users tweak key variables—like " \
+        "shot location, match context, or player stats—to explore how they influence goal probability and match results. " \
+        "With a clean UI and intuitive controls, it was built for both casual fans looking to explore the game in a new light and " \
+        "professionals seeking deeper strategic insights. Whether you're a club, coach, or just a football fanatic, my goal is to " \
+        "turn raw numbers into smarter play—and more wins. Let's connect on LinkedIn and talk football, data, or who is going to win the World Cup.")
 
-
+    elif site_page == "LinkedIn":
+        st.sidebar.markdown(
+            """
+            <style>
+            .linkedin-button {
+                background-color: #0077B5;
+                color: white;
+                padding: 0.3em 1em;
+                border: none;
+                border-radius: 10px;
+                text-align: center;
+                text-decoration: none;
+                display: block;
+                font-size: 16px;
+                font-weight: bold;
+                margin-top: 10px;
+                cursor: pointer;
+            }
+            .linkedin-button:hover {
+                background-color: #005983;
+            }
+            </style>
+            <a href="https://www.linkedin.com/in/victorchang1993/" target="_blank">
+                <div class="linkedin-button">🔗 Victor's LinkedIn</div>
+            </a>
+            """,
+            unsafe_allow_html=True
+        )
 
